@@ -1,0 +1,26 @@
+{
+  "name": "backend-fish-friends",
+  "version": "1.0.0",
+  "description": "The back end web api for the front end applictation",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fishfriends-Build-Week/Back-End.git"
+  },
+  "keywords": [],
+  "author": "Chris",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-session-knex": "^1.5.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.2",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.4",
+    "knex-cleaner": "^1.3.0",
+    "sqlite3": "^4.1.1"
+  }
+}
