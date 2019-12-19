@@ -4,10 +4,14 @@ const cors = require('cors');
 const helmet = require('helmet');
 const server = express();
 
+const userRouter = require('./Users/UsersRoutes');
+const authenticate = require('./Users/authentication/authMiddleWare');
+
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
+server.use('/accounts', userRouter)
 
 server.get('/', (req, res) => {
     res.send('welcome to fish friends API')
