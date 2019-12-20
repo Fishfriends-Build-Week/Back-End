@@ -26,4 +26,21 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  let { id } = req.params;
+
+  tripLogsDb
+    .findById(id)
+    .then(log => {
+      if (log) {
+        res.status(200).json({ success: true, log });
+      } else {
+        res.status(400).json({ success: false, message: "Log ID not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ success: false, message: "Server error", err });
+    });
+});
+
 module.exports = router;
