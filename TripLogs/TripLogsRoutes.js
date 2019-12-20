@@ -13,4 +13,17 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+  let newLog = req.body;
+
+  tripLogsDb
+    .add(newLog)
+    .then(addedLog => {
+      res.status(201).json({ success: true, addedLog });
+    })
+    .catch(err => {
+      res.status(501).json({ success: false, message: "Server error", err });
+    });
+});
+
 module.exports = router;
