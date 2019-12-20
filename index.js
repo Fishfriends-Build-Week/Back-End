@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const server = express();
 
 const userRouter = require("./Users/UsersRoutes");
+const triplogsRouter = require("./TripLogs/TripLogsRoutes");
 const authenticate = require("./Users/authentication/authMiddleWare");
 
 server.use(helmet());
@@ -12,6 +13,8 @@ server.use(cors());
 server.use(express.json());
 
 server.use("/accounts", userRouter);
+
+server.use("/logs", triplogsRouter);
 
 server.get("/", (req, res) => {
   res.send("welcome to fish friends API");
