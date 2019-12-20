@@ -13,17 +13,24 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/:id", (req, res) => {
   let newLog = req.body;
+  newLog.accounts_id = req.params.id;
 
-  tripLogsDb
-    .add(newLog)
-    .then(addedLog => {
-      res.status(201).json({ success: true, addedLog });
-    })
-    .catch(err => {
-      res.status(501).json({ success: false, message: "Server error", err });
-    });
+  if (newLog && newLog !== "" && newLog.length > 0) {
+    tripLogsDb
+      .add(newLog)
+      .then(addedLog => {
+        res.status(201).json({ success: true, addedLog });
+      })
+      .catch(err => {
+        res.status(501).json({ success: false, message: "Server error", err });
+      });
+  } else {
+    res
+      .status(201)
+      .json({ success: false, message: "No log passed into body" });
+  }
 });
 
 router.get("/search", (req, res) => {

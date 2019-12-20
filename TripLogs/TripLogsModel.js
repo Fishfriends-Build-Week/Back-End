@@ -3,7 +3,7 @@ const db = require("../data/dbConfig");
 module.exports = {
   add,
   find,
-  findBy,
+  findByLocation,
   findById
 };
 
@@ -19,8 +19,8 @@ function find() {
   return db("logs");
 }
 
-function findBy(logName) {
-  return db("logs").where(logName);
+function findBy(location) {
+  return db("logs").where(location);
 }
 
 function findById(id) {
