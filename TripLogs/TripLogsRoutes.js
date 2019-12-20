@@ -26,6 +26,25 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/search", (req, res) => {
+  let locationQuery = req.body;
+
+  if (locationQuery && locationQuery !== "") {
+    tripLogsDb
+      .findByLocation(locationQuery)
+      .then(logs => {
+        res.status(200).json({ success: true, logs });
+      })
+      .catch(err => {
+        res.status(500).json({ success: false, err });
+      });
+  } else {
+    res
+      .status(400)
+      .json({ success: false, message: "No search query provided" });
+  }
+});
+
 router.get("/:id", (req, res) => {
   let { id } = req.params;
 
