@@ -19,7 +19,7 @@ function find() {
   return db("logs");
 }
 
-function findBy(location) {
+function findByLocation(location) {
   return db("logs").where(location);
 }
 
