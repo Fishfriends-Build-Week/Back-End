@@ -25,4 +25,4 @@ server.get("/testing", (req, res) => {
 });
 
 const PORT = process.env.PORT || 7000;
-server.listen(port, console.log(`listening on port ${port}`));
+server.listen(PORT, console.log(`listening on port ${PORT}`));
