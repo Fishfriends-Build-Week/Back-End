@@ -18,14 +18,6 @@ exports.up = function(knex) {
         .notNullable();
       tbl.string("location").notNullable();
       tbl
-        .integer("bait_id")
-        .unsigned()
-        .notNullable()
-        .references("bait_id")
-        .inTable("logs_bait")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
-      tbl
         .integer("accounts_id")
         .unsigned()
         .notNullable()
