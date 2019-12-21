@@ -10,7 +10,6 @@ exports.seed = function(knex) {
           created_at: knex.fn.now(),
           time_spent: 0.5,
           location: "Big Bear",
-          bait_id: 1,
           accounts_id: 1
         },
         {
@@ -18,7 +17,6 @@ exports.seed = function(knex) {
           created_at: knex.fn.now(),
           time_spent: 4.7,
           location: "Lake Mammoth",
-          bait_id: 3,
           accounts_id: 1
         },
         {
@@ -26,7 +24,6 @@ exports.seed = function(knex) {
           created_at: knex.fn.now(),
           time_spent: 1,
           location: "The Great Lake",
-          bait_id: 2,
           accounts_id: 1
         }
       ]);
