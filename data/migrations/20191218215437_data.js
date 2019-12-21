@@ -21,12 +21,17 @@ exports.up = function(knex) {
         .integer("bait_id")
         .unsigned()
         .notNullable()
-        .references("bait.id");
+        .references("bait_id")
+        .inTable("logs_bait")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
       tbl
         .integer("accounts_id")
         .unsigned()
         .notNullable()
-        .references("accounts.id");
+        .references("accounts.id")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
     })
 
     .createTable("bait", tbl => {
@@ -42,13 +47,17 @@ exports.up = function(knex) {
         .integer("logs_id")
         .unsigned()
         .notNullable()
-        .references("logs.id");
+        .references("logs.id")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
 
       tbl
         .integer("bait_id")
         .unsigned()
         .notNullable()
-        .references("bait.id");
+        .references("bait.id")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
 
       tbl.primary(["logs_id", "bait_id"]);
     });
