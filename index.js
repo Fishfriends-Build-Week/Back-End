@@ -15,7 +15,7 @@ server.use(express.json());
 
 server.use("/accounts", userRouter);
 
-server.use("/logs", triplogsRouter);
+server.use("/logs", authenticate, triplogsRouter);
 
 server.get("/", (req, res) => {
   res.send("welcome to fish friends API");
