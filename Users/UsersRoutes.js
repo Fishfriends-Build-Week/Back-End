@@ -46,6 +46,9 @@ router.post("/login", (req, res) => {
       } else {
         res.status(401).json({ error: `Could not login ${login.username}` });
       }
+    })
+    .catch(err => {
+      res.status(500).json({ succes: false, messsage: err });
     });
 });
 
