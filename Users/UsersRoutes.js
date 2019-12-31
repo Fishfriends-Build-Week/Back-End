@@ -7,7 +7,7 @@ const db = require("./UsersModel");
 
 const router = express.Router();
 
-router.get("/", res => {
+router.get("/", (req, res) => {
   db.find()
     .then(users => {
       res.status(200).json({ success: true, users });
@@ -33,9 +33,11 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   let { username, password } = req.body;
+  console.log("user from login route", req.body);
   db.findBy({ username })
     .first()
     .then(login => {
+      console.log("login returned from db findBy", login);
       if (login && bcrypt.compareSync(password, login.password)) {
         const token = Token(login);
 
