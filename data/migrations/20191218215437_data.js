@@ -49,7 +49,7 @@ exports.up = function(knex) {
 
     .createTable("logs_bait", tbl => {
       tbl
-        .integer("logs_id")
+        .integer("log_id")
         .unsigned()
         .notNullable()
         .references("logs.log_id")
@@ -64,7 +64,7 @@ exports.up = function(knex) {
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
 
-      tbl.primary(["logs_id", "bait_id"]);
+      tbl.primary(["log_id", "bait_id"]);
     });
 };
 

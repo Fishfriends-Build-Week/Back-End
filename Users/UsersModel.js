@@ -7,12 +7,10 @@ module.exports = {
   findById
 };
 
-async function add(user) {
-  const [id] = await db("accounts").insert(user, "id");
-
+function add(user) {
   return db("accounts")
-    .where({ id })
-    .first();
+    .insert(user)
+    .then(([account_id]) => this.get(account_id));
 }
 
 function find() {
@@ -23,8 +21,8 @@ function findBy(user) {
   return db("accounts").where(user);
 }
 
-function findById(id) {
+function findById(account_id) {
   return db("accounts")
-    .where({ id })
+    .where({ account_id })
     .first();
 }
