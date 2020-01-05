@@ -60,9 +60,7 @@ exports.up = function(knex) {
       tbl
         .string("location_name")
         .unique()
-        .notNullable()
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
+        .notNullable();
     })
 
     .createTable("logs_locations", tbl => {
