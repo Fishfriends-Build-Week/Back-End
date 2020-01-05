@@ -16,7 +16,10 @@ async function add(log) {
 }
 
 function find() {
-  return db("logs");
+  return db("logs_bait as lb")
+    .join("logs as l, l.id, lb.logs_id")
+    .join("bait as b, b.id, lb.bait_id")
+    .orderBy("l.id, b.id");
 }
 
 function findByLocation(location) {
