@@ -7,12 +7,12 @@ module.exports = {
   findById
 };
 
-async function add(user) {
-  const [id] = await db("accounts").insert(user, "id");
-
+function add(user) {
   return db("accounts")
-    .where({ id })
-    .first();
+    .insert(user)
+    .then(([id]) => {
+      return findById(id);
+    });
 }
 
 function find() {
@@ -22,9 +22,11 @@ function find() {
 function findBy(user) {
   return db("accounts").where(user);
 }
-
-function findById(id) {
+function findById(account_id) {
   return db("accounts")
-    .where({ id })
-    .first();
+    .where("account_id", account_id)
+    .first()
+    .then(user => {
+      return user;
+    });
 }

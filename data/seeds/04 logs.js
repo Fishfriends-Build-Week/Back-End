@@ -6,25 +6,25 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex("logs").insert([
         {
-          id: 1,
+          log_id: 1,
           created_at: knex.fn.now(),
           time_spent: 0.5,
-          location: "Big Bear",
-          accounts_id: 1
+          location_id: 2,
+          account_id: 1
         },
         {
-          id: 2,
+          log_id: 2,
           created_at: knex.fn.now(),
           time_spent: 4.7,
-          location: "Lake Mammoth",
-          accounts_id: 1
+          location_id: 3,
+          account_id: 1
         },
         {
-          id: 3,
+          log_id: 3,
           created_at: knex.fn.now(),
           time_spent: 1,
-          location: "The Great Lake",
-          accounts_id: 1
+          location_id: 1,
+          account_id: 1
         }
       ]);
     });

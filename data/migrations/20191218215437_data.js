@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable("accounts", tbl => {
-      tbl.increments();
+      tbl.increments("account_id");
       tbl
         .string("username")
         .unique()
@@ -9,37 +9,50 @@ exports.up = function(knex) {
       tbl.string("password").notNullable();
     })
 
-    .createTable("logs", tbl => {
-      tbl.increments();
-      tbl.timestamp("created_at").defaultTo(knex.fn.now());
+    .createTable("locations", tbl => {
+      tbl.increments("location_id");
+
       tbl
-        .float("time_spent")
-        .unsigned()
+        .string("location_name")
+        .unique()
         .notNullable();
-      tbl.string("location").notNullable();
-      tbl
-        .integer("accounts_id")
-        .unsigned()
-        .notNullable()
-        .references("accounts.id")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
     })
 
     .createTable("bait", tbl => {
-      tbl.increments();
+      tbl.increments("bait_id");
       tbl
         .string("bait_name")
         .unique()
         .notNullable();
     })
+    .createTable("logs", tbl => {
+      tbl.increments("log_id");
+      tbl.timestamp("created_at").defaultTo(knex.fn.now());
+      tbl
+        .float("time_spent")
+        .unsigned()
+        .notNullable();
+      tbl
+        .integer("location_id")
+        .notNullable()
+        .references("locations.location_id")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
+      tbl
+        .integer("account_id")
+        .unsigned()
+        .notNullable()
+        .references("accounts.account_id")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
+    })
 
     .createTable("logs_bait", tbl => {
       tbl
-        .integer("logs_id")
+        .integer("log_id")
         .unsigned()
         .notNullable()
-        .references("logs.id")
+        .references("logs.log_id")
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
 
@@ -47,18 +60,19 @@ exports.up = function(knex) {
         .integer("bait_id")
         .unsigned()
         .notNullable()
-        .references("bait.id")
+        .references("bait.bait_id")
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
 
-      tbl.primary(["logs_id", "bait_id"]);
+      tbl.primary(["log_id", "bait_id"]);
     });
 };
 
 exports.down = function(knex) {
   return knex.schema
     .dropTableIfExists("logs_bait")
-    .dropTableIfExists("bait")
     .dropTableIfExists("logs")
+    .dropTableIfExists("bait")
+    .dropTableIfExists("locations")
     .dropTableIfExists("accounts");
 };

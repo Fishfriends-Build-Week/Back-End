@@ -24,20 +24,18 @@ router.post("/register", (req, res) => {
 
   db.add(newUser)
     .then(user => {
-      res.status(201).json(user);
+      res.status(201).json({ success: true, user: user });
     })
-    .catch(() => {
-      res.status(500).json({ error: "could not complete" });
+    .catch(err => {
+      res.status(500).json({ error: err });
     });
 });
 
 router.post("/login", (req, res) => {
   let { username, password } = req.body;
-  console.log("user from login route", req.body);
   db.findBy({ username })
     .first()
     .then(login => {
-      console.log("login returned from db findBy", login);
       if (login && bcrypt.compareSync(password, login.password)) {
         const token = Token(login);
 
