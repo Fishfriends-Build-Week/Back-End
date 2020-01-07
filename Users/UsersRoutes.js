@@ -24,7 +24,6 @@ router.post("/register", (req, res) => {
 
   db.add(newUser)
     .then(user => {
-      console.log("user from route after .then", user);
       res.status(201).json({ success: true, user: user });
     })
     .catch(err => {
