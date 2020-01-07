@@ -24,10 +24,11 @@ router.post("/register", (req, res) => {
 
   db.add(newUser)
     .then(user => {
-      res.status(201).json(user);
+      console.log("user from route after .then", user);
+      res.status(201).json({ success: true, user: user });
     })
-    .catch(() => {
-      res.status(500).json({ error: "could not complete" });
+    .catch(err => {
+      res.status(500).json({ error: err });
     });
 });
 

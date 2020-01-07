@@ -10,7 +10,9 @@ module.exports = {
 function add(user) {
   return db("accounts")
     .insert(user)
-    .then(([account_id]) => this.get(account_id));
+    .then(([id]) => {
+      return findById(id);
+    });
 }
 
 function find() {
@@ -20,9 +22,11 @@ function find() {
 function findBy(user) {
   return db("accounts").where(user);
 }
-
 function findById(account_id) {
   return db("accounts")
-    .where({ account_id })
-    .first();
+    .where("account_id", account_id)
+    .first()
+    .then(user => {
+      return user;
+    });
 }
