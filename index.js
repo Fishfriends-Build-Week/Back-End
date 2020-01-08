@@ -8,6 +8,7 @@ const server = express();
 const userRouter = require("./Users/UsersRoutes");
 const triplogsRouter = require("./TripLogs/TripLogsRoutes");
 const locationsRouter = require("./Locations/LocationsRoutes.js");
+const baitRouter = require("./Bait/BaitRoutes.js");
 const authenticate = require("./Users/authentication/authMiddleWare");
 
 server.use(helmet());
