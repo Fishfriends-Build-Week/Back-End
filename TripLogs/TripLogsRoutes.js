@@ -28,7 +28,7 @@ router.post("/:id", (req, res) => {
       });
   } else {
     res
-      .status(201)
+      .status(401)
       .json({ success: false, message: "No log passed into body" });
   }
 });
