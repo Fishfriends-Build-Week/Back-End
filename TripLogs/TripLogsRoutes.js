@@ -15,13 +15,22 @@ router.get("/", (req, res) => {
 });
 
 router.post("/:id", (req, res) => {
-  let newLog = req.body;
+  let newLog = req.body.log;
+  let baitList = req.body.bait;
   newLog.accounts_id = req.params.id;
 
   if (newLog && newLog !== "" && newLog.length > 0) {
     tripLogsDb
       .add(newLog)
       .then(addedLog => {
+        //inserting into the bridge table by iterating over the bait array
+        baitList.forEach(bait => {
+          Logs_BaitDb.add({
+            log_id: addedLog.log_id,
+            bait_id: bait.bait_id
+          });
+        });
+        //after that works then send 201 response that the log was added
         res.status(201).json({ success: true, addedLog });
       })
       .catch(err => {
