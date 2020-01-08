@@ -17,6 +17,7 @@ server.use(express.json());
 
 server.use("/accounts", userRouter);
 server.use("/locations", authenticate, locationsRouter);
+server.use("/bait", authenticate, baitRouter);
 server.use("/logs", authenticate, triplogsRouter);
 
 server.get("/", (req, res) => {
