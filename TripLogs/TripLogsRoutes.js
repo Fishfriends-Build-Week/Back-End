@@ -1,5 +1,6 @@
 const express = require("express");
 const tripLogsDb = require("./TripLogsModel.js");
+const Logs_BaitDb = require("../Logs_Bait/Logs_BaitModel.js");
 const router = express.Router();
 
 router.get("/", (req, res) => {
