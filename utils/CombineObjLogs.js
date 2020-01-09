@@ -2,7 +2,7 @@ module.exports = arr => {
   //establish new array
   let newArr = [];
   //loop through logs that are passed into this function
-  logs.forEach(item => {
+  arr.forEach(item => {
     //finds other logs with same id and puts them all into a single array called "existing"
     let existing = newArr.filter((v, i) => {
       return v.log_id == item.log_id;

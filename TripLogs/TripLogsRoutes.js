@@ -3,13 +3,14 @@ const tripLogsDb = require("./TripLogsModel.js");
 const Logs_BaitDb = require("../Logs_Bait/Logs_BaitModel.js");
 const router = express.Router();
 
+const combineObj = require("../utils/CombineObjLogs.js");
+
 router.get("/", (req, res) => {
   tripLogsDb
     .find()
-    .then(logs => {
+    .then(logList => {
       //getLogs from call
-      let baitList = [];
-      let newLogList = logs.forEach(log => {});
+      let logs = combineObj(logList);
 
       res.status(200).json({ success: true, logs });
     })
