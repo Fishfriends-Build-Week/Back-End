@@ -1,11 +1,17 @@
 const express = require("express");
 const tripLogsDb = require("./TripLogsModel.js");
+const Logs_BaitDb = require("../Logs_Bait/Logs_BaitModel.js");
 const router = express.Router();
+
+const combineObj = require("../utils/CombineObjLogs.js");
 
 router.get("/", (req, res) => {
   tripLogsDb
     .find()
-    .then(logs => {
+    .then(logList => {
+      //getLogs from call
+      let logs = combineObj(logList);
+
       res.status(200).json({ success: true, logs });
     })
     .catch(err => {
@@ -14,13 +20,22 @@ router.get("/", (req, res) => {
 });
 
 router.post("/:id", (req, res) => {
-  let newLog = req.body;
+  let newLog = req.body.log;
+  let baitList = req.body.bait;
   newLog.accounts_id = req.params.id;
 
   if (newLog && newLog !== "" && newLog.length > 0) {
     tripLogsDb
       .add(newLog)
       .then(addedLog => {
+        //inserting into the bridge table by iterating over the bait array
+        baitList.forEach(bait => {
+          Logs_BaitDb.add({
+            log_id: addedLog.log_id,
+            bait_id: bait.bait_id
+          });
+        });
+        //after that works then send 201 response that the log was added
         res.status(201).json({ success: true, addedLog });
       })
       .catch(err => {
@@ -28,7 +43,7 @@ router.post("/:id", (req, res) => {
       });
   } else {
     res
-      .status(201)
+      .status(401)
       .json({ success: false, message: "No log passed into body" });
   }
 });

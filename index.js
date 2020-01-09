@@ -7,6 +7,8 @@ const server = express();
 
 const userRouter = require("./Users/UsersRoutes");
 const triplogsRouter = require("./TripLogs/TripLogsRoutes");
+const locationsRouter = require("./Locations/LocationsRoutes.js");
+const baitRouter = require("./Bait/BaitRoutes.js");
 const authenticate = require("./Users/authentication/authMiddleWare");
 
 server.use(helmet());
@@ -14,7 +16,8 @@ server.use(cors());
 server.use(express.json());
 
 server.use("/accounts", userRouter);
-
+server.use("/locations", authenticate, locationsRouter);
+server.use("/bait", authenticate, baitRouter);
 server.use("/logs", authenticate, triplogsRouter);
 
 server.get("/", (req, res) => {
