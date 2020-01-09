@@ -7,6 +7,10 @@ router.get("/", (req, res) => {
   tripLogsDb
     .find()
     .then(logs => {
+      //getLogs from call
+      let baitList = [];
+      let newLogList = logs.forEach(log => {});
+
       res.status(200).json({ success: true, logs });
     })
     .catch(err => {
