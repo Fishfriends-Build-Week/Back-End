@@ -73,28 +73,27 @@ exports.up = function(knex) {
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
 
+      tbl.primary(["log_id", "bait_id"]);
+    })
+
+    .createTable("logs_fish", tbl => {
       tbl
-        .primary(["log_id", "bait_id"])
+        .integer("log_id")
+        .unsigned()
+        .notNullable()
+        .references("logs.log_id")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
 
-        .createTable("logs_fish", tbl => {
-          tbl
-            .integer("log_id")
-            .unsigned()
-            .notNullable()
-            .references("logs.log_id")
-            .onDelete("CASCADE")
-            .onUpdate("CASCADE");
+      tbl
+        .integer("fish_id")
+        .unsigned()
+        .notNullable()
+        .references("fish.fish_id")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
 
-          tbl
-            .integer("fish_id")
-            .unsigned()
-            .notNullable()
-            .references("fish.fish_id")
-            .onDelete("CASCADE")
-            .onUpdate("CASCADE");
-
-          tbl.primary(["log_id", "fish_id"]);
-        });
+      tbl.primary(["log_id", "fish_id"]);
     });
 };
 
