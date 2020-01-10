@@ -16,11 +16,17 @@ module.exports = arr => {
         bait_id: item.bait_id,
         bait_name: item.bait_name
       });
+
+      newArr[existingIndex].fish_list = newArr[existingIndex].fish_list.concat({
+        fish_id: item.fish_id,
+        fish_name: item.fish_name
+      });
     } else {
       //if there were no elements in the "existing" filter, then it checks to see if the bait_list var is undefined
-      if (item.bait_list == undefined)
+      if (item.bait_list == undefined || item.fish_list)
         //if so, the var "bait_list" is defined with the same elements as before, but it is initialized here in an array
         item.bait_list = [{ bait_id: item.bait_id, bait_name: item.bait_name }];
+      item.fish_list = [{ fish_id: item.fish_id, fish_name: item.fish_name }];
       //now the item from this loop is pushed to our "newArr"
       newArr.push(item);
     }
@@ -29,7 +35,11 @@ module.exports = arr => {
   newArr.forEach(item => {
     delete item.bait_id;
     delete item.bait_name;
+    // delete item.fish_id;
+    // delete item.fish_name;
   });
+
+  // console.log(newArr);
 
   return newArr;
 };

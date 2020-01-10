@@ -4,7 +4,9 @@ module.exports = {
   add,
   find,
   findByLocation,
-  findById
+  findById,
+  remove,
+  update
 };
 
 async function add(log) {
@@ -27,11 +29,8 @@ async function add(log) {
 
 function find() {
   return db("logs as l")
-    .join("logs_bait as lb", "lb.log_id", "l.log_id")
-    .join("bait as b", "lb.bait_id", "b.bait_id")
-    .join("logs_fish as lf", "lf.log_id", "l.log_id")
-    .join("fish as f", "lf.fish_id", "f.fish_id")
     .join("locations as loc", "l.location_id", "loc.location_id")
+
     .orderBy("l.log_id");
 }
 
@@ -43,4 +42,16 @@ function findById(log_id) {
   return db("logs")
     .where({ log_id })
     .first();
+}
+
+function remove(log_id) {
+  return db("logs")
+    .where("log_id", log_id)
+    .del();
+}
+
+function update(log_id, changes) {
+  return db("logs")
+    .where("log_id", log_id)
+    .update(changes);
 }

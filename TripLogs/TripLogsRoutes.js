@@ -1,6 +1,7 @@
 const express = require("express");
 const tripLogsDb = require("./TripLogsModel.js");
 const Logs_BaitDb = require("../Logs_Bait/Logs_BaitModel.js");
+const fishDb = require("../Fish/FishModel.js");
 const router = express.Router();
 
 const combineObj = require("../utils/CombineObjLogs.js");
@@ -10,9 +11,13 @@ router.get("/", (req, res) => {
     .find()
     .then(logList => {
       //getLogs from call
-      let logs = combineObj(logList);
+      // console.log(logList);
+      // let logs = combineObj(logList);
+      logList.forEach(log => {
+        log.fish_list = fishDb.findByLogId(log.log_id);
+      });
 
-      res.status(200).json({ success: true, logs });
+      res.status(200).json({ success: true, logList });
     })
     .catch(err => {
       res.status(500).json({ success: false, message: "Server error", err });
@@ -48,6 +53,32 @@ router.post("/:id", (req, res) => {
   }
 });
 
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  tripLogsDb
+    .remove(id)
+    .then(() => {
+      res.status(203).json({ success: true, message: "Successfully deleted" });
+    })
+    .catch(err => {
+      res.status(503).json({ success: false, message: err });
+    });
+});
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+  tripLogsDb
+    .update(id, changes)
+    .then(updatedLog => {
+      res.status(202).json({ success: true, updatedLog: updatedLog });
+    })
+    .catch(err => {
+      res.status(502).json({ success: false, message: err });
+    });
+});
+
 router.get("/search", (req, res) => {
   let locationQuery = req.body;
 
@@ -75,6 +106,22 @@ router.get("/:id", (req, res) => {
     .then(log => {
       if (log) {
         res.status(200).json({ success: true, log });
+      } else {
+        res.status(400).json({ success: false, message: "Log ID not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ success: false, message: "Server error", err });
+    });
+});
+
+router.get("/:id/fish", (req, res) => {
+  let { id } = req.params;
+  fishDb
+    .findByLogId(id)
+    .then(fish => {
+      if (fish) {
+        res.status(200).json({ success: true, fish });
       } else {
         res.status(400).json({ success: false, message: "Log ID not found" });
       }
