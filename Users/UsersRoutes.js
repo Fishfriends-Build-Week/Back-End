@@ -41,7 +41,8 @@ router.post("/login", (req, res) => {
 
         res.status(200).json({
           message: `hello ${login.username}`,
-          token
+          token,
+          loginInfo: login
         });
       } else {
         res.status(401).json({ error: `Could not login ${login.username}` });
