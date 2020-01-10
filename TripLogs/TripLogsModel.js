@@ -10,15 +10,15 @@ module.exports = {
 async function add(log) {
   const [log_id] = await db("logs").insert(log, "log_id");
 
-  bait_list = log.bait_list;
+  // bait_list = log.bait_list;
 
-  bait_list.forEach(item => {
-    //loop through added bait list and insert into bridge table
-    db("logs_bait").insert({
-      log_id: log_id,
-      bait_id: item.bait_id
-    });
-  });
+  // bait_list.forEach(item => {
+  //   //loop through added bait list and insert into bridge table
+  //   db("logs_bait").insert({
+  //     log_id: log_id,
+  //     bait_id: item.bait_id
+  //   });
+  // });
 
   return db("accounts")
     .where({ log_id })
