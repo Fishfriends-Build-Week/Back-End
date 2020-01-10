@@ -30,7 +30,11 @@ async function add(log) {
 }
 
 function find() {
-  return db("logs");
+  return db("logs as l")
+    .join("logs_bait as lb", "lb.log_id", "l.log_id")
+    .join("bait as b", "lb.bait_id", "b.bait_id")
+    .join("locations as loc", "l.location_id", "loc.location_id")
+    .orderBy("l.log_id");
   // .join("locations as loc", "l.location_id", "loc.location_id")
   // .orderBy("l.log_id");
 }

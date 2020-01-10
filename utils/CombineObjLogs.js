@@ -35,6 +35,8 @@ module.exports = arr => {
   newArr.forEach(item => {
     delete item.bait_id;
     delete item.bait_name;
+    delete item.bait_list;
+    delete item.fish_list;
     // delete item.fish_id;
     // delete item.fish_name;
   });

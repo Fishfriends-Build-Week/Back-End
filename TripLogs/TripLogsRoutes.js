@@ -9,8 +9,17 @@ const combineObj = require("../utils/CombineObjLogs.js");
 router.get("/", (req, res) => {
   tripLogsDb
     .find()
-    .then(res => res.status(200).json({ success: true, res }))
-    .catch(err => res.status(500).json({ success: false, err }));
+    // .then(res => res.status(200).json({ success: true, res }))
+    // .catch(err => res.status(500).json({ success: false, err }));
+    .then(logList => {
+      //getLogs from call
+      let logs = combineObj(logList);
+
+      res.status(200).json({ success: true, logs });
+    })
+    .catch(err => {
+      res.status(500).json({ success: false, message: "Server error", err });
+    });
 
   // const updateEachElement = arr => {
   //   console.log("array from second method", arr);
