@@ -40,4 +40,30 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  baitDb
+    .remove(id)
+    .then(() => {
+      res.status(203).json({ success: true, message: "Successfully deleted" });
+    })
+    .catch(err => {
+      res.status(503).json({ success: false, message: err });
+    });
+});
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+  baitDb
+    .update(id, changes)
+    .then(updatedBait => {
+      res.status(202).json({ success: true, updatedLog: updatedBait });
+    })
+    .catch(err => {
+      res.status(502).json({ success: false, message: err });
+    });
+});
+
 module.exports = router;

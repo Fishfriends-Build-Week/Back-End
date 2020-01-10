@@ -1,6 +1,7 @@
 const express = require("express");
 const tripLogsDb = require("./TripLogsModel.js");
 const Logs_BaitDb = require("../Logs_Bait/Logs_BaitModel.js");
+// const fishDb = require("../Fish/FishModel.js");
 const router = express.Router();
 
 const combineObj = require("../utils/CombineObjLogs.js");
@@ -8,6 +9,8 @@ const combineObj = require("../utils/CombineObjLogs.js");
 router.get("/", (req, res) => {
   tripLogsDb
     .find()
+    // .then(res => res.status(200).json({ success: true, res }))
+    // .catch(err => res.status(500).json({ success: false, err }));
     .then(logList => {
       //getLogs from call
       let logs = combineObj(logList);
@@ -17,6 +20,37 @@ router.get("/", (req, res) => {
     .catch(err => {
       res.status(500).json({ success: false, message: "Server error", err });
     });
+
+  // const updateEachElement = arr => {
+  //   console.log("array from second method", arr);
+  //   let promise = new Promise((resolve, reject) => {
+  //     let updatedArr = [];
+  //     arr.forEach(item => {
+  //       tripLogsDb.findFishByLogId(item.log_id).then(res => {
+  //         console.log("response from second method .then", res);
+  //         item.baitList = res;
+  //         updatedArr.push(item);
+  //         console.log("updatedArr from inside loop", updatedArr);
+  //       });
+  //       console.log("updatedArr from inside outer-shell loop", updatedArr);
+  //     });
+  //     console.log("array after loop in second method", updatedArr);
+  //     resolve(updatedArr);
+  //   });
+  //   return promise;
+  // };
+
+  // const getLogs = () => {
+  //   return tripLogsDb.find().then(logList => {
+
+  //     console.log("first method complete", logList);
+  //     return logList;
+  //   });
+  // };
+
+  // getLogs()
+  //   .then(res => updateEachElement(res))
+  //   .then(updatedArr => res.status(200).json({ success: true, updatedArr }));
 });
 
 router.post("/:id", (req, res) => {
@@ -48,6 +82,32 @@ router.post("/:id", (req, res) => {
   }
 });
 
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  tripLogsDb
+    .remove(id)
+    .then(() => {
+      res.status(203).json({ success: true, message: "Successfully deleted" });
+    })
+    .catch(err => {
+      res.status(503).json({ success: false, message: err });
+    });
+});
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+  tripLogsDb
+    .update(id, changes)
+    .then(updatedLog => {
+      res.status(202).json({ success: true, updatedLog: updatedLog });
+    })
+    .catch(err => {
+      res.status(502).json({ success: false, message: err });
+    });
+});
+
 router.get("/search", (req, res) => {
   let locationQuery = req.body;
 
@@ -75,6 +135,40 @@ router.get("/:id", (req, res) => {
     .then(log => {
       if (log) {
         res.status(200).json({ success: true, log });
+      } else {
+        res.status(400).json({ success: false, message: "Log ID not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ success: false, message: "Server error", err });
+    });
+});
+
+router.get("/:id/fish", (req, res) => {
+  let { id } = req.params;
+  console.log("id from fishfinder", id);
+  tripLogsDb
+    .findFishByLogId(id)
+    .then(fish => {
+      if (fish) {
+        res.status(200).json({ success: true, fish });
+      } else {
+        res.status(400).json({ success: false, message: "Log ID not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ success: false, message: "Server error", err });
+    });
+});
+
+router.get("/:id/bait", (req, res) => {
+  let { id } = req.params;
+  console.log("id from baitfinder", id);
+  tripLogsDb
+    .findBaitByLogId(id)
+    .then(bait => {
+      if (bait) {
+        res.status(200).json({ success: true, bait });
       } else {
         res.status(400).json({ success: false, message: "Log ID not found" });
       }
