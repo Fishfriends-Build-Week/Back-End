@@ -9,19 +9,39 @@ const combineObj = require("../utils/CombineObjLogs.js");
 router.get("/", (req, res) => {
   tripLogsDb
     .find()
-    .then(logList => {
-      //getLogs from call
-      // console.log(logList);
-      // let logs = combineObj(logList);
-      // logList = logList.forEach(log => {
-      //   log.fish_list = fishDb.findByLogId(log.log_id);
-      // });
-      console.log(logList);
-      res.status(200).json({ success: true, logList: logList });
-    })
-    .catch(err => {
-      res.status(500).json({ success: false, message: "Server error", err });
-    });
+    .then(res => res.status(200).json({ success: true, res }))
+    .catch(err => res.status(500).json({ success: false, err }));
+
+  // const updateEachElement = arr => {
+  //   console.log("array from second method", arr);
+  //   let promise = new Promise((resolve, reject) => {
+  //     let updatedArr = [];
+  //     arr.forEach(item => {
+  //       tripLogsDb.findFishByLogId(item.log_id).then(res => {
+  //         console.log("response from second method .then", res);
+  //         item.baitList = res;
+  //         updatedArr.push(item);
+  //         console.log("updatedArr from inside loop", updatedArr);
+  //       });
+  //       console.log("updatedArr from inside outer-shell loop", updatedArr);
+  //     });
+  //     console.log("array after loop in second method", updatedArr);
+  //     resolve(updatedArr);
+  //   });
+  //   return promise;
+  // };
+
+  // const getLogs = () => {
+  //   return tripLogsDb.find().then(logList => {
+
+  //     console.log("first method complete", logList);
+  //     return logList;
+  //   });
+  // };
+
+  // getLogs()
+  //   .then(res => updateEachElement(res))
+  //   .then(updatedArr => res.status(200).json({ success: true, updatedArr }));
 });
 
 router.post("/:id", (req, res) => {
@@ -99,7 +119,6 @@ router.get("/search", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  console.log("am I hitting anyting");
   let { id } = req.params;
 
   tripLogsDb

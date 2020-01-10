@@ -30,10 +30,9 @@ async function add(log) {
 }
 
 function find() {
-  return db("logs as l")
-    .join("locations as loc", "l.location_id", "loc.location_id")
-
-    .orderBy("l.log_id");
+  return db("logs");
+  // .join("locations as loc", "l.location_id", "loc.location_id")
+  // .orderBy("l.log_id");
 }
 
 function findByLocation(location) {
@@ -59,7 +58,7 @@ function update(log_id, changes) {
 }
 
 function findFishByLogId(logId) {
-  console.log(logId);
+  console.log("logId from finding fish", logId);
 
   //   SELECT f.fish_id, f.fish_name
   // FROM fish as f
@@ -75,7 +74,7 @@ function findFishByLogId(logId) {
 }
 
 function findBaitByLogId(logId) {
-  console.log(logId);
+  console.log("logId from finding bait", logId);
 
   //   SELECT f.fish_id, f.fish_name
   // FROM fish as f
