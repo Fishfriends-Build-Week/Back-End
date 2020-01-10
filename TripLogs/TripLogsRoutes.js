@@ -1,7 +1,7 @@
 const express = require("express");
 const tripLogsDb = require("./TripLogsModel.js");
 const Logs_BaitDb = require("../Logs_Bait/Logs_BaitModel.js");
-const fishDb = require("../Fish/FishModel.js");
+// const fishDb = require("../Fish/FishModel.js");
 const router = express.Router();
 
 const combineObj = require("../utils/CombineObjLogs.js");
@@ -13,11 +13,11 @@ router.get("/", (req, res) => {
       //getLogs from call
       // console.log(logList);
       // let logs = combineObj(logList);
-      logList.forEach(log => {
-        log.fish_list = fishDb.findByLogId(log.log_id);
-      });
-
-      res.status(200).json({ success: true, logList });
+      // logList = logList.forEach(log => {
+      //   log.fish_list = fishDb.findByLogId(log.log_id);
+      // });
+      console.log(logList);
+      res.status(200).json({ success: true, logList: logList });
     })
     .catch(err => {
       res.status(500).json({ success: false, message: "Server error", err });
@@ -99,6 +99,7 @@ router.get("/search", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+  console.log("am I hitting anyting");
   let { id } = req.params;
 
   tripLogsDb
@@ -117,11 +118,29 @@ router.get("/:id", (req, res) => {
 
 router.get("/:id/fish", (req, res) => {
   let { id } = req.params;
-  fishDb
-    .findByLogId(id)
+  console.log("id from fishfinder", id);
+  tripLogsDb
+    .findFishByLogId(id)
     .then(fish => {
       if (fish) {
         res.status(200).json({ success: true, fish });
+      } else {
+        res.status(400).json({ success: false, message: "Log ID not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ success: false, message: "Server error", err });
+    });
+});
+
+router.get("/:id/bait", (req, res) => {
+  let { id } = req.params;
+  console.log("id from baitfinder", id);
+  tripLogsDb
+    .findBaitByLogId(id)
+    .then(bait => {
+      if (bait) {
+        res.status(200).json({ success: true, bait });
       } else {
         res.status(400).json({ success: false, message: "Log ID not found" });
       }

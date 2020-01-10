@@ -3,8 +3,7 @@ const db = require("../data/dbConfig");
 module.exports = {
   add,
   find,
-  findById,
-  findByLogId
+  findById
 };
 
 function add(newFish) {
@@ -25,10 +24,8 @@ function findById(id) {
     .first();
 }
 
-function findByLogId(logId) {
-  return db("fish as f")
-    .join("logs_fish as lf", "lf.fish_id", "f.fish_id")
-    .join("logs as l", "l.log_id", "lf.log_id")
-    .where("f.log_id", logId)
-    .first();
-}
+// SELECT f.fish_id, f.fish_name
+// FROM fish as f
+// INNER JOIN logs_fish as lf on f.fish_id = lf.fish_id
+// INNER JOIN logs as l on l.log_id = lf.log_id
+// WHERE l.log_id = 1

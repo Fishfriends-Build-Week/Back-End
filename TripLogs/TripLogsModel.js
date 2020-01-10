@@ -6,7 +6,9 @@ module.exports = {
   findByLocation,
   findById,
   remove,
-  update
+  update,
+  findFishByLogId,
+  findBaitByLogId
 };
 
 async function add(log) {
@@ -40,7 +42,7 @@ function findByLocation(location) {
 
 function findById(log_id) {
   return db("logs")
-    .where({ log_id })
+    .where("log_id", log_id)
     .first();
 }
 
@@ -54,4 +56,36 @@ function update(log_id, changes) {
   return db("logs")
     .where("log_id", log_id)
     .update(changes);
+}
+
+function findFishByLogId(logId) {
+  console.log(logId);
+
+  //   SELECT f.fish_id, f.fish_name
+  // FROM fish as f
+  // INNER JOIN logs_fish as lf on f.fish_id = lf.fish_id
+  // INNER JOIN logs as l on l.log_id = lf.log_id
+  // WHERE l.log_id = 1
+
+  return db("fish as f")
+    .join("logs_fish as lf", "lf.fish_id", "f.fish_id")
+    .join("logs as l", "l.log_id", "lf.log_id")
+    .select("f.fish_id", "f.fish_name")
+    .where("l.log_id", logId);
+}
+
+function findBaitByLogId(logId) {
+  console.log(logId);
+
+  //   SELECT f.fish_id, f.fish_name
+  // FROM fish as f
+  // INNER JOIN logs_fish as lf on f.fish_id = lf.fish_id
+  // INNER JOIN logs as l on l.log_id = lf.log_id
+  // WHERE l.log_id = 1
+
+  return db("bait as b")
+    .join("logs_bait as lb", "lb.bait_id", "b.bait_id")
+    .join("logs as l", "l.log_id", "lb.log_id")
+    .select("b.bait_id", "b.bait_name")
+    .where("l.log_id", logId);
 }
