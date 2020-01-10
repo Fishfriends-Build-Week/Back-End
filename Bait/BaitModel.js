@@ -3,7 +3,9 @@ const db = require("../data/dbConfig");
 module.exports = {
   add,
   find,
-  findById
+  findById,
+  remove,
+  update
 };
 
 function add(newBait) {
@@ -22,4 +24,16 @@ function findById(id) {
   return db("bait")
     .where("bait_id", id)
     .first();
+}
+
+function remove(bait_id) {
+  return db("bait")
+    .where("bait_id", bait_id)
+    .del();
+}
+
+function update(bait_id, changes) {
+  return db("bait")
+    .where("bait_id", bait_id)
+    .update(changes);
 }
