@@ -1,0 +1,3173 @@
+{
+	"info": {
+		"_postman_id": "4bfb8001-083f-4c81-b925-3151c5a0e804",
+		"name": "FishFriends",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "/accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/accounts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /accounts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/accounts",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "410"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"19a-6eD2thBi1IfsE6HWV1uqkVMw1TI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 05:49:04 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"users\": [\n        {\n            \"account_id\": 1,\n            \"username\": \"user1\",\n            \"password\": \"pass1\"\n        },\n        {\n            \"account_id\": 2,\n            \"username\": \"user2\",\n            \"password\": \"pass2\"\n        },\n        {\n            \"account_id\": 3,\n            \"username\": \"user3\",\n            \"password\": \"pass3\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/accounts/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"user5\",\n\t\"password\": \"pass5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/accounts/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"accounts",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /accounts/register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"user4\",\n\t\"password\": \"pass4\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/accounts/register",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"accounts",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"85-8Ah0gwJS8PWTEIrp+X0Nm3BimFQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 05:32:38 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"user\": {\n        \"account_id\": 5,\n        \"username\": \"user5\",\n        \"password\": \"$2a$07$rzjKLGEGcOFdE/rCuGGV1.x09N2VOc8kp42oG3e7uedVs.8BWUH5u\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/accounts/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b24be0f7-8214-481a-86ab-59fbb7fc7414",
+								"exec": [
+									"var data = pm.response.json();",
+									"pm.collectionVariables.set(\"JWT\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"user5\",\n\t\"password\": \"pass5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/accounts/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"accounts",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /accounts/login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"user4\",\n\t\"password\": \"pass4\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/accounts/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"accounts",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "410"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"19a-l5O8/im2DUfJ3r2LmDa0UU4vIMA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 05:50:49 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"hello user5\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI1IiwicGFzc3dvcmQiOiIkMmEkMDckcnpqS0xHRUdjT0ZkRS9yQ3VHR1YxLngwOU4yVk9jOGtwNDJvRzNlN3VlZFZzLjhCV1VINXUiLCJpYXQiOjE1Nzg3Mjc3MjMsImV4cCI6MTU3ODczNDkyM30.gRVT1BR1mmZcln2ODKQ9RAaKqGN2Xh09O76ZQDYN6G8\",\r\n    \"loginInfo\": {\r\n        \"account_id\": 5,\r\n        \"username\": \"user5\",\r\n        \"password\": \"$2a$07$rzjKLGEGcOFdE/rCuGGV1.x09N2VOc8kp42oG3e7uedVs.8BWUH5u\"\r\n    }\r\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "locations",
+			"item": [
+				{
+					"name": "/locations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/locations",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /locations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/locations",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"locations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"b5-MX2kEtH8W7DQ6souORs7dOzA6Eg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 05:51:10 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"locations\": [\n        {\n            \"location_id\": 1,\n            \"location_name\": \"Mt Rushmore\"\n        },\n        {\n            \"location_id\": 2,\n            \"location_name\": \"Mississippi River\"\n        },\n        {\n            \"location_id\": 3,\n            \"location_name\": \"Grand Rapids\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/locations/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/locations/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"locations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /locations/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/locations/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"locations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"4b-slRzbKKBu66XZaHhS3gmhOAshuA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 05:54:39 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"location\": {\n        \"location_id\": 1,\n        \"location_name\": \"Mt Rushmore\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/locations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"location_id\": 4,\n\t\"location_name\": \"Spirit Lake, Mt St Helens\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/locations",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /locations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"location_id\": 4,\n\t\"location_name\": \"Spirit Lake, Mt St Helens\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/locations",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"locations"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"59-stDDsj4I4B4ayNd/VH+CQC/Nuko\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:01:38 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"location\": {\n        \"location_id\": 4,\n        \"location_name\": \"Spirit Lake, Mt St Helens\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/locations/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"location_name\": \"Spirit Lake, Mt St Helens, Washington state, USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/locations/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"locations",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /locations/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"location_name\": \"Spirit Lake, Mt St Helens, Washington state, USA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/locations/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"locations",
+										"4"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1f-oduXJZ2m7NwqbbYYn9f6J4KLSE4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:02:36 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"updatedLog\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "/locations/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/locations/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"locations",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE /locations/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/locations/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"locations",
+										"4"
+									]
+								}
+							},
+							"status": "Non-Authoritative Information",
+							"code": 203,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"31-PdrSwOBW7C1mkICqNoQ/LDCJq0U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:09:16 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully deleted\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "bait",
+			"item": [
+				{
+					"name": "/bait",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/bait",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bait"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /bait",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/bait",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bait"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"8b-EdnMw3eP+NRbkJLgkqM7Erhcfbo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:10:32 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"bait\": [\n        {\n            \"bait_id\": 1,\n            \"bait_name\": \"red worms\"\n        },\n        {\n            \"bait_id\": 2,\n            \"bait_name\": \"squid\"\n        },\n        {\n            \"bait_id\": 3,\n            \"bait_name\": \"blue whistler\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/bait/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/bait/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bait",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /bait/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/bait/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bait",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"3d-9Kd/2UrG8PWMuo9i+fYrZk4fgDE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:11:12 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"bait\": {\n        \"bait_id\": 1,\n        \"bait_name\": \"red worms\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/bait",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bait_id\": 4,\n    \"bait_name\": \"segmented lure\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/bait",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bait"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /bait",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bait_id\": 4,\n    \"bait_name\": \"segmented lure\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/bait",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bait"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"42-HWUcLfeKO7pYfQpvQ/MrX58eMI0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:14:04 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"bait\": {\n        \"bait_id\": 4,\n        \"bait_name\": \"segmented lure\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/bait/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bait_name\": \"multi-jointed segmented swimbait lure\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/bait/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bait",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /bait/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bait_name\": \"multi-jointed segmented swimbait lure\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/bait/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bait",
+										"4"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1f-oduXJZ2m7NwqbbYYn9f6J4KLSE4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:16:37 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"updatedLog\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "/bait/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/bait/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bait",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE /bait/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/bait/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"bait",
+										"4"
+									]
+								}
+							},
+							"status": "Non-Authoritative Information",
+							"code": 203,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"31-PdrSwOBW7C1mkICqNoQ/LDCJq0U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:33:47 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully deleted\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "fish",
+			"item": [
+				{
+					"name": "/fish",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/fish",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"fish"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /fish",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/fish",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"83-/0iYkw/8COmZ3v78ERODADWkQPs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:36:00 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"fish\": [\n        {\n            \"fish_id\": 1,\n            \"fish_name\": \"Tuna\"\n        },\n        {\n            \"fish_id\": 2,\n            \"fish_name\": \"Salmon\"\n        },\n        {\n            \"fish_id\": 3,\n            \"fish_name\": \"Swordfish\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/fish/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/fish/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"fish",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /fish/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/fish/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"38-sT3y2d7kSzJuAjaYoqVQ2zo8rd4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:37:11 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"fish\": {\n        \"fish_id\": 1,\n        \"fish_name\": \"Tuna\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/fish",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fish_id\": 4,\n    \"fish_name\": \"Trout\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/fish",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"fish"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /fish",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fish_id\": 4,\n    \"fish_name\": \"Rainbow Trout\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/fish",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"41-OyNFkFDxLeYUOAB+16NDnHEcQM0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:38:39 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"fish\": {\n        \"fish_id\": 4,\n        \"fish_name\": \"Trout\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/fish/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fish_name\": \"Rainbow Trout\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/fish/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"fish",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /fish/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fish_name\": \"Rainbow Trout\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/fish/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"4"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1f-RXUXmdzGnLlbBbppuCfaZHKES+U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:45:09 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"updatedLog\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "/fish/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/fish/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"fish",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE /fish/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/fish/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"fish",
+										"4"
+									]
+								}
+							},
+							"status": "Non-Authoritative Information",
+							"code": 203,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"31-PdrSwOBW7C1mkICqNoQ/LDCJq0U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:46:04 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully deleted\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "logs",
+			"item": [
+				{
+					"name": "/logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logs",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /logs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "408"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"198-GGnNECImn0bH96QGtumEHgWfh/4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:51:58 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"logs\": [\n        {\n            \"log_id\": 1,\n            \"created_at\": \"2020-01-10 03:55:25\",\n            \"time_spent\": 0.5,\n            \"location_id\": 2,\n            \"account_id\": 1,\n            \"location_name\": \"Mississippi River\"\n        },\n        {\n            \"log_id\": 2,\n            \"created_at\": \"2020-01-10 03:55:25\",\n            \"time_spent\": 4.7,\n            \"location_id\": 3,\n            \"account_id\": 1,\n            \"location_name\": \"Grand Rapids\"\n        },\n        {\n            \"log_id\": 3,\n            \"created_at\": \"2020-01-10 03:55:25\",\n            \"time_spent\": 1,\n            \"location_id\": 1,\n            \"account_id\": 1,\n            \"location_name\": \"Mt Rushmore\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/logs/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logs/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /logs/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Dns-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "118"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"76-8UitaFVumvPtJScjkJGGOIpCrAk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 06:52:17 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"log\": {\n        \"log_id\": 1,\n        \"created_at\": \"2020-01-10 03:55:25\",\n        \"time_spent\": 0.5,\n        \"location_id\": 2,\n        \"account_id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/logs",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c39ede72-d8b2-4899-9688-7f675b94adb2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"log\": [\n\t\t{\n\t\t    \"log_id\": 4,\n\t\t    \"created_at\": \"{{datetimestamp}}\",\n\t\t    \"time_spent\": 0.5,\n\t\t    \"location_id\": 2\n\t\t}\n\t],\n\t\"bait\": [\n\t\t{\n\t\t\t\"bait_id\": 1\n\t\t},\n\t\t{\n\t\t\t\"bait_id\": 3\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/logs/5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/logs/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"time_spent\": 0.9,\r\n    \"created_at\": \"{{datetimestamp}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/logs/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /logs/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"time_spent\": 0.9,\r\n    \"created_at\": \"{{datetimestamp}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/logs/3",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs",
+										"3"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f-oduXJZ2m7NwqbbYYn9f6J4KLSE4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 08:33:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"updatedLog\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "/logs/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logs/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE /logs/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs",
+										"4"
+									]
+								}
+							},
+							"status": "Non-Authoritative Information",
+							"code": 203,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-PdrSwOBW7C1mkICqNoQ/LDCJq0U\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 08:26:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully deleted\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/logs/search/:locationQuery",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logs/search/river",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs",
+								"search",
+								"river"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /logs/search/:locationQuery",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs/search/river",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs",
+										"search",
+										"river"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "157"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9d-iYdhgA3WqLME2HRNSfuJMbnamlw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 08:52:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"logs\": [\n        {\n            \"log_id\": 1,\n            \"created_at\": \"2020-01-10 03:55:25\",\n            \"time_spent\": 0.5,\n            \"location_id\": 2,\n            \"account_id\": 1,\n            \"location_name\": \"Mississippi River\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/logs/:id/bait",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logs/3/bait",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs",
+								"3",
+								"bait"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /logs/:id/bait",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs/1/bait",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs",
+										"1",
+										"bait"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-EdnMw3eP+NRbkJLgkqM7Erhcfbo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 08:25:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"bait\": [\n        {\n            \"bait_id\": 1,\n            \"bait_name\": \"red worms\"\n        },\n        {\n            \"bait_id\": 2,\n            \"bait_name\": \"squid\"\n        },\n        {\n            \"bait_id\": 3,\n            \"bait_name\": \"blue whistler\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/logs/:id/fish",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{JWT}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logs/1/fish",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logs",
+								"1",
+								"fish"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /logs/:id/fish",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{JWT}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs/1/fish",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs",
+										"1",
+										"fish"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"83-/0iYkw/8COmZ3v78ERODADWkQPs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Jan 2020 08:25:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"fish\": [\n        {\n            \"fish_id\": 1,\n            \"fish_name\": \"Tuna\"\n        },\n        {\n            \"fish_id\": 2,\n            \"fish_name\": \"Salmon\"\n        },\n        {\n            \"fish_id\": 3,\n            \"fish_name\": \"Swordfish\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7c535b64-29dc-4a34-9ddb-a7de15a5170f",
+				"type": "text/javascript",
+				"exec": [
+					"var m = new Date();",
+					"var dateString =",
+					"    m.getUTCFullYear() + \"-\" +",
+					"    (\"0\" + (m.getUTCMonth()+1)).slice(-2) + \"-\" +",
+					"    (\"0\" + m.getUTCDate()).slice(-2) + \" \" +",
+					"    (\"0\" + m.getUTCHours()).slice(-2) + \":\" +",
+					"    (\"0\" + m.getUTCMinutes()).slice(-2) + \":\" +",
+					"    (\"0\" + m.getUTCSeconds()).slice(-2);",
+					"pm.collectionVariables.set(\"datetimestamp\", dateString);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ad619aba-1a28-4904-a970-02fae2d4327d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "a20e64f7-5c8b-40e3-a4e7-57fdb35ae9c0",
+			"key": "JWT",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI1IiwicGFzc3dvcmQiOiIkMmEkMDckcnpqS0xHRUdjT0ZkRS9yQ3VHR1YxLngwOU4yVk9jOGtwNDJvRzNlN3VlZFZzLjhCV1VINXUiLCJpYXQiOjE1Nzg3MzUyNzIsImV4cCI6MTU3ODc0MjQ3Mn0.fzyV53NMaL5fBlw252Od4vear4IMpYHiwaNABE1GwnY",
+			"type": "string"
+		},
+		{
+			"id": "5097b96d-d1df-4a1a-85dc-5ac02ac93413",
+			"key": "datetimestamp",
+			"value": "2020-01-11 10:21:36",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
