@@ -40,7 +40,15 @@ function find() {
 }
 
 function findByLocation(location) {
-  return db("logs").where("location_name", location);
+  // console.log(`TripLogsModel: findByLocation -> location`, `'%${location}%'`);
+
+  const r = db("logs as l")
+    .join("locations as loc", "l.location_id", "loc.location_id")
+    .where("loc.location_name", "like", `%${location}%`);
+
+  // console.log(`TripLogsModel: findByLocation -> result`, r);
+
+  return r;
 }
 
 function findById(log_id) {

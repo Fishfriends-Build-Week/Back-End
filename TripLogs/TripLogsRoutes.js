@@ -108,8 +108,9 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.get("/search", (req, res) => {
-  let locationQuery = req.body;
+router.get("/search/:locationQuery", (req, res) => {
+  let { locationQuery } = req.params;
+  // console.log(`TripLogRoutes: search -> locationQuery`, `'${locationQuery}'`);
 
   if (locationQuery && locationQuery !== "") {
     tripLogsDb
