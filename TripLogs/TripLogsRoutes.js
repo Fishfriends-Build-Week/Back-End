@@ -56,30 +56,50 @@ router.get("/", (req, res) => {
 router.post("/:id", (req, res) => {
   let newLog = req.body.log;
   let baitList = req.body.bait;
-  newLog.account_id = req.params.id;
 
+  console.log(`TripLogsRoutes: post -> req.body\n`, req.body);
+  console.log(`TripLogsRoutes: post -> newLog.length`, newLog.length);
+  console.log(`TripLogsRoutes: post -> baitList.length`, baitList.length);
+
+  console.log(`TripLogsRoutes: post got to line: `, 0);
   if (newLog && newLog !== "" && newLog.length > 0) {
-    tripLogsDb
-      .add(newLog)
-      .then(addedLog => {
-        //inserting into the bridge table by iterating over the bait array
-        baitList.forEach(bait => {
-          Logs_BaitDb.add({
-            log_id: addedLog.log_id,
-            bait_id: bait.bait_id
+    console.log(`TripLogsRoutes: post got to line: `, 1);
+    newLog.forEach(innerLog => {
+      innerLog.account_id = parseInt(req.params.id, 10);
+      console.log(`TripLogsRoutes: innerLog\n`, innerLog);
+      tripLogsDb
+        .add(innerLog)
+        .then(addedLog => {
+          console.log(`TripLogsRoutes: post got to line: `, 2);
+          // addedLog.log.account_id = req.params.id;
+          console.log(`TripLogsRoutes: post got to line: `, 3);
+          console.log(`TripLogsRoutes: post -> addedLog\n`, addedLog);
+          //inserting into the bridge table by iterating over the bait array
+          baitList.forEach(bait => {
+            console.log(`TripLogsRoutes: post got to line: `, 4);
+            console.log(`TripLogsRoutes: post => addedLog -> bait\n`, bait);
+            Logs_BaitDb.add({
+              log_id: addedLog.log_id,
+              bait_id: bait.bait_id
+            });
+            console.log(`TripLogsRoutes: post got to line: `, 5);
           });
+          console.log(`TripLogsRoutes: post got to line: `, 6);
+          //after that works then send 201 response that the log was added
+          res.status(201).json({ success: true, addedLog });
+          console.log(`TripLogsRoutes: post got to line: `, 7);
+        })
+        .catch(err => {
+          res.status(501).json({ success: false, message: "Server error", err });
         });
-        //after that works then send 201 response that the log was added
-        res.status(201).json({ success: true, addedLog });
-      })
-      .catch(err => {
-        res.status(501).json({ success: false, message: "Server error", err });
-      });
+      console.log(`TripLogsRoutes: post got to line: `, 8);
+    });
   } else {
     res
       .status(401)
       .json({ success: false, message: "No log passed into body" });
   }
+  console.log(`TripLogsRoutes: post got to line: `, 9);
 });
 
 router.delete("/:id", (req, res) => {
