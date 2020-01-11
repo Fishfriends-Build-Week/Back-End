@@ -56,7 +56,7 @@ router.get("/", (req, res) => {
 router.post("/:id", (req, res) => {
   let newLog = req.body.log;
   let baitList = req.body.bait;
-  newLog.accounts_id = req.params.id;
+  newLog.account_id = req.params.id;
 
   if (newLog && newLog !== "" && newLog.length > 0) {
     tripLogsDb

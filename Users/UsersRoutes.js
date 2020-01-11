@@ -49,7 +49,7 @@ router.post("/login", (req, res) => {
       }
     })
     .catch(err => {
-      res.status(500).json({ succes: false, messsage: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 
