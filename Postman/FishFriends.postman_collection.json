@@ -106,6 +106,188 @@
 					]
 				},
 				{
+					"name": "/accounts/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/accounts/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"accounts",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /accounts/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/accounts/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"accounts",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-X+dJLaGtYwqI+yFProZdRfC8L48\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 01:10:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"user\": {\n        \"account_id\": 1,\n        \"username\": \"user1\",\n        \"password\": \"pass1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/accounts/:username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/accounts/user2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"accounts",
+								"user2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /accounts/:username",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/accounts/user2",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"accounts",
+										"user2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-7Oud9BlT2MM82dawwqLlhjIVfB4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2020 07:04:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"user\": {\n        \"account_id\": 2,\n        \"username\": \"user2\",\n        \"password\": \"pass2\"\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "/accounts/register",
 					"request": {
 						"method": "POST",
@@ -3157,15 +3339,15 @@
 	],
 	"variable": [
 		{
-			"id": "a20e64f7-5c8b-40e3-a4e7-57fdb35ae9c0",
+			"id": "956e3c8e-0cc5-4696-8d95-4437d198164e",
 			"key": "JWT",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI1IiwicGFzc3dvcmQiOiIkMmEkMDckcnpqS0xHRUdjT0ZkRS9yQ3VHR1YxLngwOU4yVk9jOGtwNDJvRzNlN3VlZFZzLjhCV1VINXUiLCJpYXQiOjE1Nzg3MzUyNzIsImV4cCI6MTU3ODc0MjQ3Mn0.fzyV53NMaL5fBlw252Od4vear4IMpYHiwaNABE1GwnY",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI1IiwicGFzc3dvcmQiOiIkMmEkMDckcnpqS0xHRUdjT0ZkRS9yQ3VHR1YxLngwOU4yVk9jOGtwNDJvRzNlN3VlZFZzLjhCV1VINXUiLCJpYXQiOjE1Nzg3ODg2NTAsImV4cCI6MTU3ODc5NTg1MH0.ylk6PWVMHejZqDrIGw1iPo0C4zfn7NrMOr2u4YROkrU",
 			"type": "string"
 		},
 		{
-			"id": "5097b96d-d1df-4a1a-85dc-5ac02ac93413",
+			"id": "4e6a6a2e-3e3f-43be-a982-01c76eddf7b7",
 			"key": "datetimestamp",
-			"value": "2020-01-11 10:21:36",
+			"value": "2020-01-12 07:04:31",
 			"type": "string"
 		}
 	],
