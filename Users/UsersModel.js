@@ -20,7 +20,13 @@ function find() {
 }
 
 function findBy(user) {
-  return db("accounts").where(user);
+  console.log(`UsersModel: findBy -> user`, user);
+  return db("accounts").where("username", user)
+    .first()
+    .then(innerUser => {
+      console.log(`UsersModel: findBy => user -> user`, innerUser);
+      return innerUser;
+    });
 }
 function findById(account_id) {
   return db("accounts")

@@ -12,35 +12,48 @@ module.exports = {
 };
 
 async function add(log) {
-  const [log_id] = await db("logs").insert(log, "log_id");
+  // const [log_id] = await db("logs").insert(log, "log_id");
 
-  // bait_list = log.bait_list;
+  // // bait_list = log.bait_list;
 
-  // bait_list.forEach(item => {
-  //   //loop through added bait list and insert into bridge table
-  //   db("logs_bait").insert({
-  //     log_id: log_id,
-  //     bait_id: item.bait_id
-  //   });
-  // });
+  // // bait_list.forEach(item => {
+  // //   //loop through added bait list and insert into bridge table
+  // //   db("logs_bait").insert({
+  // //     log_id: log_id,
+  // //     bait_id: item.bait_id
+  // //   });
+  // // });
 
-  return db("accounts")
-    .where({ log_id })
-    .first();
+  // return db("accounts")
+  //   .where({ log_id })
+  //   .first();
+
+  return db("logs")
+  .insert(log, "log_id")
+  .then((id) => {
+    return findById(id);
+  });
 }
 
 function find() {
   return db("logs as l")
+    .join("locations as loc", "l.location_id", "loc.location_id")
+    .join("accounts as a", "l.account_id", "a.account_id")
     .join("logs_bait as lb", "lb.log_id", "l.log_id")
     .join("bait as b", "lb.bait_id", "b.bait_id")
-    .join("locations as loc", "l.location_id", "loc.location_id")
     .orderBy("l.log_id");
-  // .join("locations as loc", "l.location_id", "loc.location_id")
-  // .orderBy("l.log_id");
 }
 
 function findByLocation(location) {
-  return db("logs").where("location_name", location);
+  // console.log(`TripLogsModel: findByLocation -> location`, `'%${location}%'`);
+
+  const r = db("logs as l")
+    .join("locations as loc", "l.location_id", "loc.location_id")
+    .where("loc.location_name", "like", `%${location}%`);
+
+  // console.log(`TripLogsModel: findByLocation -> result`, r);
+
+  return r;
 }
 
 function findById(log_id) {

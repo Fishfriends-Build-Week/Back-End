@@ -6,7 +6,7 @@ const helmet = require("helmet");
 const server = express();
 
 const userRouter = require("./Users/UsersRoutes");
-const triplogsRouter = require("./TripLogs/TripLogsRoutes");
+const tripLogsRouter = require("./TripLogs/TripLogsRoutes");
 const locationsRouter = require("./Locations/LocationsRoutes.js");
 const baitRouter = require("./Bait/BaitRoutes.js");
 const fishRouter = require("./Fish/FishRoutes.js");
@@ -20,7 +20,7 @@ server.use("/accounts", userRouter);
 server.use("/locations", authenticate, locationsRouter);
 server.use("/bait", authenticate, baitRouter);
 server.use("/fish", authenticate, fishRouter);
-server.use("/logs", authenticate, triplogsRouter);
+server.use("/logs", authenticate, tripLogsRouter);
 
 server.get("/", (req, res) => {
   res.send("welcome to fish friends API");

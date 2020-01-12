@@ -8,12 +8,12 @@ exports.seed = function(knex) {
         { log_id: 1, bait_id: 1 },
         { log_id: 1, bait_id: 2 },
         { log_id: 1, bait_id: 3 },
-        { log_id: 2, bait_id: 1 },
         { log_id: 2, bait_id: 2 },
         { log_id: 2, bait_id: 3 },
+        { log_id: 2, bait_id: 1 },
+        { log_id: 3, bait_id: 3 },
         { log_id: 3, bait_id: 1 },
-        { log_id: 3, bait_id: 2 },
-        { log_id: 3, bait_id: 3 }
+        { log_id: 3, bait_id: 2 }
       ]);
     });
 };
