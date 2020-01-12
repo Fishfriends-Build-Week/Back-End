@@ -17,6 +17,34 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:input", (req, res) => {
+  const { input } = req.params;
+  console.log(`UserRoutes: get -> input`, input);
+  let i = -1;
+  try {
+    let x = parseInt(input, 10);
+    if (!isNaN(x)) i = x;
+  } catch {}  //Ignore any error.
+  console.log(`UserRoutes: get -> parseInt(input)`, i);
+  if (i > 0) {
+    db.findById(i)
+      .then(user => {
+        res.status(200).json({ success: true, user });
+      })
+      .catch(err => {
+        res.status(500).json({ success: false, err });
+      });
+  } else {
+    db.findBy(input)
+      .then(user => {
+        res.status(200).json({ success: true, user });
+      })
+      .catch(err => {
+        res.status(500).json({ success: false, err });
+      });
+  }
+});
+
 router.post("/register", (req, res) => {
   let newUser = req.body;
   const hash = bcrypt.hashSync(newUser.password, 7);
