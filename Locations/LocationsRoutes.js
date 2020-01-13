@@ -59,7 +59,7 @@ router.put("/:id", (req, res) => {
   locationsDb
     .update(id, changes)
     .then(updatedLocation => {
-      res.status(202).json({ success: true, updatedLog: updatedLocation });
+      res.status(202).json({ success: true, updatedLocation: updatedLocation });
     })
     .catch(err => {
       res.status(502).json({ success: false, message: err });

@@ -59,7 +59,7 @@ router.put("/:id", (req, res) => {
   fishDb
     .update(id, changes)
     .then(updatedFish => {
-      res.status(202).json({ success: true, updatedLog: updatedFish });
+      res.status(202).json({ success: true, updatedFish: updatedFish });
     })
     .catch(err => {
       res.status(502).json({ success: false, message: err });

@@ -59,7 +59,7 @@ router.put("/:id", (req, res) => {
   baitDb
     .update(id, changes)
     .then(updatedBait => {
-      res.status(202).json({ success: true, updatedLog: updatedBait });
+      res.status(202).json({ success: true, updatedBait: updatedBait });
     })
     .catch(err => {
       res.status(502).json({ success: false, message: err });
