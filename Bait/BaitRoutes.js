@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
       res.status(201).json({ success: true, bait });
     })
     .catch(err => {
-      res.status(501).json({ success: false, err });
+      res.status(500).json({ success: false, err });
     });
 });
 
@@ -49,7 +49,7 @@ router.delete("/:id", (req, res) => {
       res.status(203).json({ success: true, message: "Successfully deleted" });
     })
     .catch(err => {
-      res.status(503).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 
@@ -59,10 +59,10 @@ router.put("/:id", (req, res) => {
   baitDb
     .update(id, changes)
     .then(updatedBait => {
-      res.status(202).json({ success: true, updatedLog: updatedBait });
+      res.status(202).json({ success: true, updatedBait: updatedBait });
     })
     .catch(err => {
-      res.status(502).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 

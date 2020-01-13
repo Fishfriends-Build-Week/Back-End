@@ -202,13 +202,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/accounts/user2",
+							"raw": "{{URL}}/accounts/paul",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"accounts",
-								"user2"
+								"paul"
 							]
 						}
 					},
@@ -559,6 +559,220 @@
 							],
 							"cookie": [],
 							"body": "{\r\n    \"message\": \"hello user5\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI1IiwicGFzc3dvcmQiOiIkMmEkMDckcnpqS0xHRUdjT0ZkRS9yQ3VHR1YxLngwOU4yVk9jOGtwNDJvRzNlN3VlZFZzLjhCV1VINXUiLCJpYXQiOjE1Nzg3Mjc3MjMsImV4cCI6MTU3ODczNDkyM30.gRVT1BR1mmZcln2ODKQ9RAaKqGN2Xh09O76ZQDYN6G8\",\r\n    \"loginInfo\": {\r\n        \"account_id\": 5,\r\n        \"username\": \"user5\",\r\n        \"password\": \"$2a$07$rzjKLGEGcOFdE/rCuGGV1.x09N2VOc8kp42oG3e7uedVs.8BWUH5u\"\r\n    }\r\n}"
+						}
+					]
+				},
+				{
+					"name": "/accounts/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"user4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/accounts/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"accounts",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /accounts/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"user4\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/accounts/4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"accounts",
+										"4"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-IAgE7QI+cwG/keQqA3uoyD2szK4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 13 Jan 2020 03:01:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"updatedUser\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "/accounts/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/accounts/5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"accounts",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE /accounts/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/accounts/7",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"accounts",
+										"7"
+									]
+								}
+							},
+							"status": "Non-Authoritative Information",
+							"code": 203,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-PdrSwOBW7C1mkICqNoQ/LDCJq0U\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 13 Jan 2020 02:57:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully deleted\"\n}"
 						}
 					]
 				}
@@ -3339,15 +3553,15 @@
 	],
 	"variable": [
 		{
-			"id": "956e3c8e-0cc5-4696-8d95-4437d198164e",
+			"id": "17fa1bea-4038-4ca5-8f41-f0f5a0cdaf41",
 			"key": "JWT",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI1IiwicGFzc3dvcmQiOiIkMmEkMDckcnpqS0xHRUdjT0ZkRS9yQ3VHR1YxLngwOU4yVk9jOGtwNDJvRzNlN3VlZFZzLjhCV1VINXUiLCJpYXQiOjE1Nzg3ODg2NTAsImV4cCI6MTU3ODc5NTg1MH0.ylk6PWVMHejZqDrIGw1iPo0C4zfn7NrMOr2u4YROkrU",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXI1IiwicGFzc3dvcmQiOiIkMmEkMDckR2xGWG0zZmkxL0RqUnZDa1A1ckJodW5ZNXNrWHliVjc3b0FTeFdSbnJpQi9JcFlyZ2w3bWkiLCJpYXQiOjE1Nzg4OTE3MDcsImV4cCI6MTU3ODg5ODkwN30.ikierNqihpcwpFhwIevv4LsIl9wJjb6poLfG-fAmsiU",
 			"type": "string"
 		},
 		{
-			"id": "4e6a6a2e-3e3f-43be-a982-01c76eddf7b7",
+			"id": "f81e4111-fa19-4bf5-8ca7-b0e92d84d060",
 			"key": "datetimestamp",
-			"value": "2020-01-12 07:04:31",
+			"value": "2020-01-13 07:32:11",
 			"type": "string"
 		}
 	],
