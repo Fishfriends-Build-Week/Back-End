@@ -8,9 +8,13 @@
 
 | Method | Path               | Description                                       | Note                                        |
 |--------|--------------------|---------------------------------------------------|---------------------------------------------|
-| GET    | /accounts/         | retrieves list of existing users                  |                                             |
+| GET    | /accounts/         | retrieves all existing users                      |                                             |
+| GET    | /accounts/:id      | retrieves 1 existing user by id                   |                                             |
+| GET    | /accounts/:name    | retrieves 1 existing user by name                 |                                             |
 | POST   | /accounts/register | to create a user                                  | takes username/password -- for now          |
 | POST   | /accounts/login    | to login a user                                   | takes username/password -- for now          |
+| PUT    | /accounts/:id      | id as route param and new name as body of request | can only update username                    |
+| DELETE | /accounts/:id      | account id as route param                         |                                             |
 | GET    | /locations         | displays locations                                | requires "authorization" token in header    |
 | GET    | /locations/:id     | displays location with specified id               | requires "authorization" token in header    |
 | POST   | /locations         | adds new location                                 | requires "authorization" token in header    |
@@ -31,6 +35,6 @@
 | POST   | /logs              | adds new log                                      | requires "authorization" token in header    |
 | PUT    | /logs/:id          | id as route param and new log as body of request  | can only update location_id, log time_spent |
 | DELETE | /logs/:id          | log id as route param                             |                                             |
-| GET    | /logs/search       | searches for and returns array of existing logs based on query | text passed into body          |
+| GET    | /logs/search/:text | searches for and returns array of existing logs based on query |                                |
 | GET    | /logs/:id/bait     | retrieves all bait used in a log by the log id passed into the route params |                   |
 | GET    | /logs/:id/fish     | retrieves all fish used in a log by the log id passed into the route params |                   |
