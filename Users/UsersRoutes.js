@@ -50,14 +50,14 @@ router.post("/register", (req, res) => {
   const hash = bcrypt.hashSync(newUser.password, 7);
   newUser.password = hash;
 
-  console.log(`UsersRoutes: post/register -> username '${newUser.username}', password '${newUser.password}'`);
-
   if (newUser.username !== "" && newUser.password !== "") {
     db.add(newUser)
       .then(user => {
-        res.status(201).json({ success: true, user: user });
+        console.log(`UsersRoutes: post/register -> username '${newUser.username}', password '${newUser.password}'`);
+        res.status(201).json({ success: true, loginInfo: user });
       })
       .catch(err => {
+        console.log(`UsersRoutes: post/register -> 500 error: ${err}`);
         res.status(500).json({ error: err });
       });
   } else {
