@@ -90,7 +90,7 @@ router.post("/:id", (req, res) => {
           console.log(`TripLogsRoutes: post got to line: `, 7);
         })
         .catch(err => {
-          res.status(501).json({ success: false, message: "Server error", err });
+          res.status(500).json({ success: false, message: "Server error", err });
         });
       console.log(`TripLogsRoutes: post got to line: `, 8);
     });
@@ -111,7 +111,7 @@ router.delete("/:id", (req, res) => {
       res.status(203).json({ success: true, message: "Successfully deleted" });
     })
     .catch(err => {
-      res.status(503).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 
@@ -124,7 +124,7 @@ router.put("/:id", (req, res) => {
       res.status(202).json({ success: true, updatedLog: updatedLog });
     })
     .catch(err => {
-      res.status(502).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 

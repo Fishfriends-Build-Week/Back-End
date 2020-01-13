@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
       res.status(201).json({ success: true, location });
     })
     .catch(err => {
-      res.status(501).json({ success: false, err });
+      res.status(500).json({ success: false, err });
     });
 });
 
@@ -49,7 +49,7 @@ router.delete("/:id", (req, res) => {
       res.status(203).json({ success: true, message: "Successfully deleted" });
     })
     .catch(err => {
-      res.status(503).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 
@@ -62,7 +62,7 @@ router.put("/:id", (req, res) => {
       res.status(202).json({ success: true, updatedLocation: updatedLocation });
     })
     .catch(err => {
-      res.status(502).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 

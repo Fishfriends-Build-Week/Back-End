@@ -42,13 +42,15 @@ router.get("/:input", (req, res) => {
       .catch(err => {
         res.status(500).json({ success: false, err });
       });
-  }
+  };
 });
 
 router.post("/register", (req, res) => {
   let newUser = req.body;
   const hash = bcrypt.hashSync(newUser.password, 7);
   newUser.password = hash;
+
+  console.log(`UsersRoutes: post/register -> username '${newUser.username}', password '${newUser.password}'`);
 
   if (newUser.username !== "" && newUser.password !== "") {
     db.add(newUser)
@@ -65,40 +67,47 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   let { username, password } = req.body;
+  console.log(`UsersRoutes: post/login -> username '${username}', password '${password}'`);
   if (username !== "" && password !== "") {
-    db.findBy({ username })
+    db.findBy(username)
       .first()
       .then(login => {
-        if (login && bcrypt.compareSync(password, login.password)) {
+        const bc = bcrypt.compareSync(password, login.password);
+        // console.log(`UsersRoutes: post/login -> bc =`, bc);
+        if (login && bc) {
+          // console.log(`UsersRoutes: post/login -> login\n`, login);
           const token = Token(login);
-
-          res.status(200).json({
+          // console.log(`UsersRoutes: post/login -> token =`, token);
+          const r = {
             message: `hello ${login.username}`,
             token,
             loginInfo: login
-          });
+          };
+          // console.log(`UsersRoutes: post/login -> return\n`, r);
+          res.status(200).json(r);
         } else {
           res.status(401).json({ error: `Could not login ${login.username}` });
         }
       })
       .catch(err => {
+        console.log(`UsersRoutes: post/login -> 500 error: ${err}`);
         res.status(500).json({ success: false, message: err });
       });
   } else {
+    console.log(`UsersRoutes: post/login -> 500 error: Empty username (${username}) or password (${password})`);
     res.status(500).json({ success: false, message: `Empty username (${username}) or password (${password})` });
   };
 });
 
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-
   db
     .remove(id)
     .then(() => {
       res.status(203).json({ success: true, message: "Successfully deleted" });
     })
     .catch(err => {
-      res.status(503).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 
@@ -111,7 +120,7 @@ router.put("/:id", (req, res) => {
       res.status(202).json({ success: true, updatedUser: updatedUser });
     })
     .catch(err => {
-      res.status(502).json({ success: false, message: err });
+      res.status(500).json({ success: false, message: err });
     });
 });
 
@@ -124,8 +133,7 @@ function Token(user) {
   const options = {
     expiresIn: "2 hours"
   };
-
   return jwt.sign(payload, secret.secret, options);
-}
+};
 
 module.exports = router;
