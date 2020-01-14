@@ -54,7 +54,7 @@ router.post("/register", (req, res) => {
     db.add(newUser)
       .then(user => {
         console.log(`UsersRoutes: post/register -> username '${newUser.username}', password '${newUser.password}'`);
-        res.status(201).json({ success: true, loginInfo: user });
+        res.status(201).json({ success: true, userData: user });
       })
       .catch(err => {
         console.log(`UsersRoutes: post/register -> 500 error: ${err}`);
@@ -81,7 +81,7 @@ router.post("/login", (req, res) => {
           const r = {
             message: `hello ${login.username}`,
             token,
-            loginInfo: login
+            userData: login
           };
           // console.log(`UsersRoutes: post/login -> return\n`, r);
           res.status(200).json(r);
